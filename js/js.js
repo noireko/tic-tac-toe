@@ -1,12 +1,27 @@
-const cell1 = document.getElementById("1");
-const cell2 = document.getElementById("2");
-const cell3 = document.getElementById("3");
-const cell4 = document.getElementById("4");
-const cell5 = document.getElementById("5");
-const cell6 = document.getElementById("6");
-const cell7 = document.getElementById("7");
-const cell8 = document.getElementById("8");
-const cell9 = document.getElementById("9");
+const cell = document.querySelectorAll(".cell")
+
+let currentPlayer = "X";
+
+function switchTurn() {
+    if (currentPlayer === "X") {
+        currentPlayer = "O";
+    } else {
+        currentPlayer = "X";
+    }
+}
+
+cell.forEach(cell => {
+    cell.addEventListener("click", () => {
+        if (currentPlayer === "X") {
+            cell.innerText = "X"
+        } else {
+            cell.innerText = "O"
+        }
+        switchTurn()
+    })
+});
+
+
 
 function gameBoard() {
     const rows = 3;
