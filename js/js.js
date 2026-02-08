@@ -1,4 +1,4 @@
-/* ---------- DOM ---------- */
+
 const cells = document.querySelectorAll(".cell");
 const startBtn = document.getElementById("start");
 const playerXInput = document.getElementById("playerX");
@@ -6,7 +6,6 @@ const playerOInput = document.getElementById("playerO");
 const turnText = document.getElementById("turn");
 const scoreText = document.getElementById("score");
 
-/* ---------- PLAYERS ---------- */
 function createUser(name, symbol) {
   let score = 0;
 
@@ -19,11 +18,9 @@ function createUser(name, symbol) {
 let playerX;
 let playerO;
 
-/* ---------- GAME STATE ---------- */
 let currentPlayer = "X";
 let gameOver = false;
 
-/* ---------- BOARD ---------- */
 function gameBoard() {
   const board = [];
 
@@ -38,13 +35,11 @@ function gameBoard() {
 
 let board = gameBoard();
 
-/* ---------- TURN ---------- */
 function switchTurn() {
   currentPlayer = currentPlayer === "X" ? "O" : "X";
   updateTurnText();
 }
 
-/* ---------- RENDER ---------- */
 function renderBoard() {
   cells.forEach(cell => {
     const row = cell.dataset.row;
@@ -65,7 +60,6 @@ function updateScore() {
   `;
 }
 
-/* ---------- WIN CHECK ---------- */
 function checkWinner() {
   const winningCombos = [
     [[0,0],[0,1],[0,2]],
@@ -88,7 +82,6 @@ function checkWinner() {
   });
 }
 
-/* ---------- RESET BOARD ---------- */
 function resetBoard() {
   board = gameBoard();
   gameOver = false;
@@ -97,7 +90,6 @@ function resetBoard() {
   updateTurnText();
 }
 
-/* ---------- CLICK ---------- */
 cells.forEach(cell => {
   cell.addEventListener("click", () => {
     if (gameOver) return;
@@ -123,7 +115,6 @@ cells.forEach(cell => {
   });
 });
 
-/* ---------- START GAME ---------- */
 startBtn.addEventListener("click", () => {
   const nameX = playerXInput.value || "Jugador X";
   const nameO = playerOInput.value || "Jugador O";
