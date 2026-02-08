@@ -27,3 +27,10 @@ div>div {
     align-items: center;
     font-size: 52px;
 }
+
+.jugadores {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-right: 50px;
+}
